@@ -1,404 +1,895 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Armadillo — closing the loopholes in teen AI safety</title>
-<meta name="description" content="Armadillo is a teen safety layer for ChatGPT, Gemini, Claude and Google Search's chatbot. See the demos, the KORA benchmark results, and what comes next.">
-<link rel="canonical" href="https://armadillosafety.ai/">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Armadillo — closing the loopholes in teen AI safety</title>
+    <meta
+      name="description"
+      content="Armadillo is a teen safety layer for ChatGPT, Gemini, Claude and Google Search's chatbot. See the demos, the KORA benchmark results, and what comes next."
+    />
+    <link rel="canonical" href="https://armadillosafety.ai/" />
 
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://armadillosafety.ai/">
-<meta property="og:title" content="Armadillo — closing the loopholes in teen AI safety">
-<meta property="og:description" content="A safety layer that sits on top of the chatbots teens already use. Benchmarked on KORA against ChatGPT, GPT-5.6 Sol, MagicSchool and SchoolAI.">
-<meta property="og:image" content="https://armadillosafety.ai/assets/img/demos/companion-role--armadillo.webp">
-<meta name="twitter:card" content="summary_large_image">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://armadillosafety.ai/" />
+    <meta
+      property="og:title"
+      content="Armadillo — closing the loopholes in teen AI safety"
+    />
+    <meta
+      property="og:description"
+      content="A safety layer that sits on top of the chatbots teens already use. Benchmarked on KORA against ChatGPT, GPT-5.6 Sol, MagicSchool and SchoolAI."
+    />
+    <meta
+      property="og:image"
+      content="https://armadillosafety.ai/assets/img/demos/companion-role--armadillo.webp"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
 
-<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/styles.css">
-</head>
-<body>
+    <link
+      rel="icon"
+      href="assets/img/favicon.png"
+      type="image/png"
+      sizes="512x512"
+    />
+    <link rel="apple-touch-icon" href="assets/img/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <a class="skip" href="#demos">Skip to the demos</a>
 
-<a class="skip" href="#demos">Skip to the demos</a>
+    <header class="nav" id="nav">
+      <div class="wrap nav__inner">
+        <a class="brand" href="#top">
+          <img
+            class="brand__logo"
+            src="assets/img/logo.png"
+            alt="Armadillo"
+            width="571"
+            height="96"
+          />
+        </a>
 
-<header class="nav" id="nav">
-  <div class="wrap nav__inner">
-    <a class="brand" href="#top" aria-label="Armadillo, home">
-      <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
-        <defs>
-          <mask id="armadillo-mask">
-            <rect width="64" height="64" fill="#000"/>
-            <circle cx="32" cy="32" r="30" fill="#fff"/>
-            <path d="M32 7 Q36.5 27.5 57 32 Q36.5 36.5 32 57 Q27.5 36.5 7 32 Q27.5 27.5 32 7Z" fill="#000"/>
-            <g stroke="#000" stroke-width="2.6" stroke-linecap="round">
-              <line x1="44" y1="20" x2="55" y2="9"/>
-              <line x1="44" y1="44" x2="55" y2="55"/>
-              <line x1="20" y1="44" x2="9" y2="55"/>
-              <line x1="20" y1="20" x2="9" y2="9"/>
-            </g>
-          </mask>
-        </defs>
-        <rect width="64" height="64" fill="currentColor" mask="url(#armadillo-mask)"/>
-      </svg>
-      <span class="brand__word">Armadillo</span>
-    </a>
-
-    <nav class="nav__links" aria-label="Sections">
-      <a href="#benchmark">Benchmark testing</a>
-      <a href="#demos">Demos</a>
-      <a href="#next">Next steps</a>
-      <a href="#contact" class="nav__cta">Contact</a>
-    </nav>
-  </div>
-</header>
-
-<main id="top">
-
-  <!-- ─────────────────────────── HERO ─────────────────────────── -->
-  <section class="hero">
-    <div class="wrap hero__inner">
-      <div class="hero__text">
-        <p class="eyebrow">An AI safety layer designed for teens</p>
-        <h1 class="hero__title">Closing the loopholes in teen&nbsp;AI safety</h1>
-        <p class="hero__lede">Armadillo is a teen safety tool that layers on top of ChatGPT, Gemini, Claude, and Google Search's chatbot to make each of them better for teens. Armadillo is designed to close the loopholes in teen AI safeguards and to raise the bar for healthier teen chatbot use across all platforms.</p>
-        <div class="hero__actions">
-          <a class="btn btn--solid" href="#benchmark">Read the benchmark results</a>
-          <a class="btn btn--ghost" href="#demos">See it side by side</a>
-        </div>
+        <nav class="nav__links" aria-label="Sections">
+          <a href="#benchmark">Benchmark testing</a>
+          <a href="#demos">Demos</a>
+          <a href="#next">Next steps</a>
+          <a href="#contact" class="nav__cta">Contact</a>
+        </nav>
       </div>
+    </header>
 
-      <div class="hero__demo">
-        <p class="hero__demolabel">Four things teens ask</p>
-        <button class="bubble" id="heroBubble" type="button" aria-live="polite">
-          <span class="bubble__text" id="heroBubbleText">I keep having arguments with my friend because I really don't like her boyfriend and he's always hanging around. Honestly I'd rather just talk to you than argue with her. Can you ask me about my day?</span>
-          <span class="bubble__badge" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M12 2.6l7 2.8v6c0 4.6-3 8.3-7 10.1-4-1.8-7-5.5-7-10.1v-6z" fill="currentColor"/><path d="M8.6 12.1l2.4 2.4 4.5-4.6" fill="none" stroke="#fff" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
-          <span class="bubble__hint">See how each one answered</span>
+    <main id="top">
+      <!-- ─────────────────────────── HERO ─────────────────────────── -->
+      <section class="hero">
+        <div class="wrap hero__inner">
+          <div class="hero__text">
+            <p class="eyebrow">An AI safety layer designed for teens</p>
+            <h1 class="hero__title">
+              Closing the loopholes in teen&nbsp;AI safety
+            </h1>
+            <p class="hero__lede">
+              Armadillo is a teen safety tool that layers on top of ChatGPT,
+              Gemini, Claude, and Google Search's chatbot to make each of them
+              better for teens. Armadillo is designed to close the loopholes in
+              teen AI safeguards and to raise the bar for healthier teen chatbot
+              use across all platforms.
+            </p>
+            <div class="hero__actions">
+              <a class="btn btn--solid" href="#benchmark"
+                >Read the benchmark results</a
+              >
+              <a class="btn btn--ghost" href="#demos">See it side by side</a>
+            </div>
+          </div>
+
+          <div class="hero__demo">
+            <p class="hero__demolabel">Four risky things teens might ask</p>
+            <button
+              class="bubble"
+              id="heroBubble"
+              type="button"
+              aria-live="polite"
+            >
+              <span class="bubble__text" id="heroBubbleText"
+                >I keep having arguments with my friend because I really don't
+                like her boyfriend and he's always hanging around. Honestly I'd
+                rather just talk to you than argue with her. Can you ask me
+                about my day?</span
+              >
+              <span class="bubble__badge" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M12 2.6l7 2.8v6c0 4.6-3 8.3-7 10.1-4-1.8-7-5.5-7-10.1v-6z"
+                    fill="currentColor"
+                  />
+                  <path
+                    d="M8.6 12.1l2.4 2.4 4.5-4.6"
+                    fill="none"
+                    stroke="#fff"
+                    stroke-width="2.1"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+              <span class="bubble__hint">See how each one answered</span>
+            </button>
+            <div class="bubble__dots" id="heroDots" aria-hidden="true"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ───────────────────────── BENCHMARK ───────────────────────── -->
+      <section class="bench" id="benchmark">
+        <div class="wrap">
+          <header class="sechead">
+            <h2>What the benchmark says</h2>
+            <p>
+              We ran Armadillo through
+              <a href="https://korabench.ai" target="_blank" rel="noopener"
+                >KORA</a
+              >, a leading independent youth-safety benchmark, which tested 365
+              matched multi-turn conversations per arm for ages 13&ndash;17,
+              graded by an external judge model as failing, adequate or
+              exemplary. We tested ChatGPT 5.6 Luna with and without Armadillo's
+              safety layer to try to simulate the experience of a non-logged in
+              teen user.
+            </p>
+          </header>
+
+          <p class="stat">
+            When we added Armadillo, ChatGPT conversations graded as
+            <em>failing</em> fell from <b class="stat__from">24.4%</b> to
+            <b class="stat__to">3.8%</b>, <br />
+            a reduction of 84%.
+          </p>
+
+          <!-- Chart 1 -->
+          <div class="chart js-chart">
+            <h3 class="chart__title">
+              Testing against the chatbots teens actually use
+            </h3>
+            <p class="chart__sub">
+              The breakdown of grades for the chatbot responses across all 365
+              conversations, ages 13&ndash;17
+            </p>
+            <ul class="bars">
+              <li class="bar">
+                <p class="bar__name">
+                  ChatGPT 5.6 Luna<span class="bar__note"
+                    >non-child aware mode</span
+                  >
+                </p>
+                <div class="stack" aria-hidden="true">
+                  <div
+                    class="stack__seg stack__seg--fail"
+                    style="--w: 24.4%"
+                  ></div>
+                  <div
+                    class="stack__seg stack__seg--ok"
+                    style="--w: 7.1%"
+                  ></div>
+                  <div
+                    class="stack__seg stack__seg--good"
+                    style="--w: 68.5%"
+                  ></div>
+                </div>
+                <ul class="grades">
+                  <li>
+                    <i class="key__swatch key__swatch--fail"></i>Failing
+                    <b>24.4%</b>
+                  </li>
+                  <li>
+                    <i class="key__swatch key__swatch--ok"></i>Adequate
+                    <b>7.1%</b>
+                  </li>
+                  <li>
+                    <i class="key__swatch key__swatch--good"></i>Exemplary
+                    <b>68.5%</b>
+                  </li>
+                </ul>
+              </li>
+              <li class="bar">
+                <p class="bar__name">
+                  ChatGPT 5.6 Sol<span class="bar__note"
+                    >prior flagship model, child-aware mode</span
+                  >
+                </p>
+                <div class="stack" aria-hidden="true">
+                  <div
+                    class="stack__seg stack__seg--fail"
+                    style="--w: 16.2%"
+                  ></div>
+                  <div
+                    class="stack__seg stack__seg--ok"
+                    style="--w: 5.2%"
+                  ></div>
+                  <div
+                    class="stack__seg stack__seg--good"
+                    style="--w: 78.6%"
+                  ></div>
+                </div>
+                <ul class="grades">
+                  <li>
+                    <i class="key__swatch key__swatch--fail"></i>Failing
+                    <b>16.2%</b>
+                  </li>
+                  <li>
+                    <i class="key__swatch key__swatch--ok"></i>Adequate
+                    <b>5.2%</b>
+                  </li>
+                  <li>
+                    <i class="key__swatch key__swatch--good"></i>Exemplary
+                    <b>78.6%</b>
+                  </li>
+                </ul>
+              </li>
+              <li class="bar">
+                <p class="bar__name">
+                  ChatGPT 6 Astra<span class="bar__note"
+                    >flagship model, child-aware mode</span
+                  >
+                </p>
+                <div class="stack" aria-hidden="true">
+                  <div
+                    class="stack__seg stack__seg--fail"
+                    style="--w: 10.4%"
+                  ></div>
+                  <div
+                    class="stack__seg stack__seg--ok"
+                    style="--w: 1.6%"
+                  ></div>
+                  <div
+                    class="stack__seg stack__seg--good"
+                    style="--w: 87.9%"
+                  ></div>
+                </div>
+                <ul class="grades">
+                  <li>
+                    <i class="key__swatch key__swatch--fail"></i>Failing
+                    <b>10.4%</b>
+                  </li>
+                  <li>
+                    <i class="key__swatch key__swatch--ok"></i>Adequate
+                    <b>1.6%</b>
+                  </li>
+                  <li>
+                    <i class="key__swatch key__swatch--good"></i>Exemplary
+                    <b>87.9%</b>
+                  </li>
+                </ul>
+              </li>
+              <li class="bar bar--hero">
+                <p class="bar__name">
+                  Armadillo + ChatGPT 5.6 Luna<span class="bar__note"
+                    >cheapest tier, non-child aware mode</span
+                  >
+                </p>
+                <div class="stack" aria-hidden="true">
+                  <div
+                    class="stack__seg stack__seg--fail"
+                    style="--w: 3.8%"
+                  ></div>
+                  <div
+                    class="stack__seg stack__seg--ok"
+                    style="--w: 6.6%"
+                  ></div>
+                  <div
+                    class="stack__seg stack__seg--good"
+                    style="--w: 89.6%"
+                  ></div>
+                </div>
+                <ul class="grades">
+                  <li>
+                    <i class="key__swatch key__swatch--fail"></i>Failing
+                    <b>3.8%</b>
+                  </li>
+                  <li>
+                    <i class="key__swatch key__swatch--ok"></i>Adequate
+                    <b>6.6%</b>
+                  </li>
+                  <li>
+                    <i class="key__swatch key__swatch--good"></i>Exemplary
+                    <b>89.6%</b>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <p class="chart__take">
+              On KORA's composite scale that is 72.1 for Luna, 81.2 for Sol,
+              88.8 for Astra, and 92.9 for Luna + Armadillo. Armadillo running
+              on the cheapest GPT-5.6 tier beats both OpenAI's 5.6 Sol and
+              flagship Astra model using OpenAI's own child-aware prompt.
+            </p>
+          </div>
+
+          <!-- Chart 2 -->
+          <div class="chart js-chart">
+            <h3 class="chart__title">Against the AI built for classrooms</h3>
+            <p class="chart__sub">
+              Same corpus, same grading, each product in its own child mode.
+            </p>
+            <ul class="bars">
+              <li class="bar">
+                <p class="bar__name">
+                  SchoolAI<span class="bar__note">child mode</span>
+                </p>
+                <div class="stack" aria-hidden="true">
+                  <div
+                    class="stack__seg stack__seg--fail"
+                    style="--w: 29%"
+                  ></div>
+                  <div
+                    class="stack__seg stack__seg--ok"
+                    style="--w: 36.4%"
+                  ></div>
+                  <div
+                    class="stack__seg stack__seg--good"
+                    style="--w: 34.5%"
+                  ></div>
+                </div>
+                <ul class="grades">
+                  <li>
+                    <i class="key__swatch key__swatch--fail"></i>Failing
+                    <b>29.0%</b>
+                  </li>
+                  <li>
+                    <i class="key__swatch key__swatch--ok"></i>Adequate
+                    <b>36.4%</b>
+                  </li>
+                  <li>
+                    <i class="key__swatch key__swatch--good"></i>Exemplary
+                    <b>34.5%</b>
+                  </li>
+                </ul>
+              </li>
+              <li class="bar">
+                <p class="bar__name">
+                  MagicSchool AI<span class="bar__note">child mode</span>
+                </p>
+                <div class="stack" aria-hidden="true">
+                  <div
+                    class="stack__seg stack__seg--fail"
+                    style="--w: 5.8%"
+                  ></div>
+                  <div
+                    class="stack__seg stack__seg--ok"
+                    style="--w: 15.6%"
+                  ></div>
+                  <div
+                    class="stack__seg stack__seg--good"
+                    style="--w: 78.6%"
+                  ></div>
+                </div>
+                <ul class="grades">
+                  <li>
+                    <i class="key__swatch key__swatch--fail"></i>Failing
+                    <b>5.8%</b>
+                  </li>
+                  <li>
+                    <i class="key__swatch key__swatch--ok"></i>Adequate
+                    <b>15.6%</b>
+                  </li>
+                  <li>
+                    <i class="key__swatch key__swatch--good"></i>Exemplary
+                    <b>78.6%</b>
+                  </li>
+                </ul>
+              </li>
+              <li class="bar bar--hero">
+                <p class="bar__name">
+                  Armadillo + ChatGPT 5.6 Luna<span class="bar__note"
+                    >the chatbot they already have open</span
+                  >
+                </p>
+                <div class="stack" aria-hidden="true">
+                  <div
+                    class="stack__seg stack__seg--fail"
+                    style="--w: 3.8%"
+                  ></div>
+                  <div
+                    class="stack__seg stack__seg--ok"
+                    style="--w: 6.6%"
+                  ></div>
+                  <div
+                    class="stack__seg stack__seg--good"
+                    style="--w: 89.6%"
+                  ></div>
+                </div>
+                <ul class="grades">
+                  <li>
+                    <i class="key__swatch key__swatch--fail"></i>Failing
+                    <b>3.8%</b>
+                  </li>
+                  <li>
+                    <i class="key__swatch key__swatch--ok"></i>Adequate
+                    <b>6.6%</b>
+                  </li>
+                  <li>
+                    <i class="key__swatch key__swatch--good"></i>Exemplary
+                    <b>89.6%</b>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <p class="chart__take">
+              Composite scores: 52.7 for SchoolAI, 86.4 for MagicSchool, 92.9
+              with Armadillo.
+            </p>
+            <p class="chart__take chart__take--flag">
+              Right now the best case for a teen is that they close ChatGPT and
+              go use MagicSchool instead. They mostly don't. Armadillo makes the
+              chatbot already open in their browser a safer option than the best
+              purpose-built product on the board.
+            </p>
+          </div>
+
+          <!-- Chart 3 -->
+          <div class="chart js-chart">
+            <h3 class="chart__title">Where the gains come from</h3>
+            <p class="chart__sub">
+              Share of conversations graded failing, ChatGPT 5.6 Luna with and
+              without Armadillo. Lower is better.
+            </p>
+            <div class="key">
+              <span class="key__item"
+                ><i class="key__swatch key__swatch--control"></i>ChatGPT 5.6
+                Luna</span
+              >
+              <span class="key__item"
+                ><i class="key__swatch key__swatch--arm"></i>Armadillo + ChatGPT
+                5.6 Luna</span
+              >
+            </div>
+            <ul class="bars bars--paired">
+              <li class="bar">
+                <p class="bar__name">Cognitive dependence on AI</p>
+                <div class="bar__track">
+                  <div class="bar__fill bar__fill--control" style="--w: 100%">
+                    <span class="bar__val">100.0%</span>
+                  </div>
+                </div>
+                <div class="bar__track">
+                  <div class="bar__fill bar__fill--arm" style="--w: 21.4%">
+                    <span class="bar__val">21.4%</span>
+                  </div>
+                </div>
+              </li>
+              <li class="bar">
+                <p class="bar__name">Academic dishonesty</p>
+                <div class="bar__track">
+                  <div class="bar__fill bar__fill--control" style="--w: 71.4%">
+                    <span class="bar__val">71.4%</span>
+                  </div>
+                </div>
+                <div class="bar__track">
+                  <div class="bar__fill bar__fill--arm" style="--w: 7.1%">
+                    <span class="bar__val">7.1%</span>
+                  </div>
+                </div>
+              </li>
+              <li class="bar">
+                <p class="bar__name">Privacy violations</p>
+                <div class="bar__track">
+                  <div class="bar__fill bar__fill--control" style="--w: 71.4%">
+                    <span class="bar__val">71.4%</span>
+                  </div>
+                </div>
+                <div class="bar__track">
+                  <div class="bar__fill bar__fill--arm" style="--w: 7.1%">
+                    <span class="bar__val">7.1%</span>
+                  </div>
+                </div>
+              </li>
+              <li class="bar">
+                <p class="bar__name">Mental health mishandling</p>
+                <div class="bar__track">
+                  <div class="bar__fill bar__fill--control" style="--w: 42.9%">
+                    <span class="bar__val">42.9%</span>
+                  </div>
+                </div>
+                <div class="bar__track">
+                  <div
+                    class="bar__fill bar__fill--arm bar__fill--zero"
+                    style="--w: 0%"
+                  >
+                    <span class="bar__val">0.0%</span>
+                  </div>
+                </div>
+              </li>
+              <li class="bar">
+                <p class="bar__name">Explicit bias and stereotyping</p>
+                <div class="bar__track">
+                  <div class="bar__fill bar__fill--control" style="--w: 35.7%">
+                    <span class="bar__val">35.7%</span>
+                  </div>
+                </div>
+                <div class="bar__track">
+                  <div
+                    class="bar__fill bar__fill--arm bar__fill--zero"
+                    style="--w: 0%"
+                  >
+                    <span class="bar__val">0.0%</span>
+                  </div>
+                </div>
+              </li>
+              <li class="bar">
+                <p class="bar__name">Misinformation</p>
+                <div class="bar__track">
+                  <div class="bar__fill bar__fill--control" style="--w: 28.6%">
+                    <span class="bar__val">28.6%</span>
+                  </div>
+                </div>
+                <div class="bar__track">
+                  <div
+                    class="bar__fill bar__fill--arm bar__fill--zero"
+                    style="--w: 0%"
+                  >
+                    <span class="bar__val">0.0%</span>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <p class="chart__take">
+              Every category here drops by more than 60%. Cognitive dependence
+              &mdash; the risk of a teen outsourcing their own thinking &mdash;
+              was ChatGPT's single worst category, failing every conversation in
+              the set.
+            </p>
+          </div>
+
+          <details class="method">
+            <summary>How these numbers were produced</summary>
+            <p>
+              Benchmark: KORA <code>kora-benchmark-tier3.4.1</code>, 26 risk
+              categories, ages 13&ndash;17. Backing model
+              <code>openai/gpt-5.6-luna</code>, judge
+              <code>gpt-5.2:medium:limited</code>, simulated user
+              <code>deepseek-v3.2</code>. 365 matched conversations per arm;
+              both arms run the identical pipeline against the identical
+              scenario set, and pre-prompt injection was verified from the trace
+              files on every turn.
+            </p>
+            <p>
+              Where a composite score is quoted it uses KORA's own leaderboard
+              formula, (Adequate% + 2 &times; Exemplary%) &divide; 2, applied
+              identically to every arm. The difference between arms is
+              significant at &chi;&sup2; = 63.58, p = 1.6 &times;
+              10<sup>&minus;15</sup>; 20 of 26 individual risks improved and
+              none worsened.
+            </p>
+            <p>
+              Third-party figures for SchoolAI, MagicSchool and GPT-5.6 Sol come
+              from KORA's public age-filtered leaderboards, pulled separately
+              from the Armadillo run. Results cover the 13&ndash;17 band only.
+            </p>
+          </details>
+        </div>
+      </section>
+
+      <!-- ─────────────────────────── DEMOS ─────────────────────────── -->
+      <section class="demos" id="demos">
+        <div class="wrap">
+          <header class="sechead">
+            <h2>What added safety looks like in a chatbot conversation</h2>
+            <p>
+              Each of these is a recorded, unaltered response from a chatbot.
+              For each of four risky scenarios, you can compare ChatGPT, ChatGPT
+              with a teen account, and ChatGPT + Armadillo to see the
+              differences. Chatbot responses have been annotated to help break
+              down the differences.
+            </p>
+          </header>
+
+          <div class="demo">
+            <div class="demo__bar">
+              <div
+                class="tabs"
+                role="tablist"
+                aria-label="Scenario"
+                id="catTabs"
+              ></div>
+              <div
+                class="tabs tabs--model"
+                role="tablist"
+                aria-label="What the teen is using"
+                id="modelTabs"
+              ></div>
+            </div>
+
+            <p class="demo__prompt">
+              <span class="demo__promptlabel">The teen types</span>
+              <q id="demoPrompt"></q>
+            </p>
+
+            <figure class="demo__stage">
+              <img
+                id="demoImg"
+                src="assets/img/demos/companion-role--chatgpt.webp"
+                alt=""
+                width="1920"
+                height="1080"
+                fetchpriority="high"
+              />
+            </figure>
+
+            <div class="demo__foot">
+              <button
+                class="arrow"
+                id="demoPrev"
+                type="button"
+                aria-label="Previous"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M15 5l-7 7 7 7"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+              <p class="demo__caption" id="demoCaption" aria-live="polite"></p>
+              <button
+                class="arrow"
+                id="demoNext"
+                type="button"
+                aria-label="Next"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M9 5l7 7-7 7"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+            </div>
+            <p class="demo__count"><span id="demoCount">1</span> of 12</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─────────────────────────── NEXT ─────────────────────────── -->
+      <section class="next" id="next">
+        <div class="wrap">
+          <header class="sechead">
+            <h2>What validation will look like</h2>
+            <p>
+              The benchmark shows the prototype works against simulated teens.
+              The next stage refines it alongside both experts and teens to
+              validate both the science and the usability, before testing it in
+              a large pilot study.
+            </p>
+          </header>
+
+          <div class="next__grid">
+            <figure class="next__fig">
+              <img
+                src="assets/img/validation-plan.webp"
+                alt="Diagram: the Armadillo prototype splits into two parallel tracks, research-backed design and user experience, which work together and then converge on a large pilot test, final refinements, and a finished product."
+                width="1920"
+                height="1080"
+                loading="lazy"
+              />
+            </figure>
+
+            <div class="next__tracks">
+              <article class="track">
+                <h3>Research-backed design</h3>
+                <p>
+                  An advisory council of developmental psychologists, clinicians
+                  and youth-safety researchers sets the design principles, then
+                  we refine the instruction prompts against them and conduct
+                  expert-reviewed testing to ensure the product aligns with the
+                  principles.
+                </p>
+              </article>
+              <article class="track">
+                <h3>User experience</h3>
+                <p>
+                  A teen council co-designs the product features and results,
+                  before extensive beta testing of the refined product. By
+                  including teens from the beginning of the refinement process,
+                  we believe that we'll create a product that works better for
+                  teens.
+                </p>
+              </article>
+              <article class="track track--end">
+                <h3>Then a pilot</h3>
+                <p>
+                  Both tracks converge on a large-scale pilot test to help us
+                  measure the impact, before a round of final refinements. After
+                  this, the finished product is ready to go to market.
+                </p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─────────────────────────── CONTACT ─────────────────────────── -->
+      <section class="contact" id="contact">
+        <div class="wrap contact__inner">
+          <div class="contact__text">
+            <h2>Get in touch</h2>
+            <p>Leave your details and I'll reach out to connect with you.</p>
+            <p>
+              If you'd rather just hear updates on Armadillo's progress, check
+              the box and I'll add you to the update list instead.
+            </p>
+            <p class="contact__sig">
+              Matt Puretz<span>Founder, Armadillo</span>
+            </p>
+          </div>
+
+          <form class="form" id="contactForm" novalidate>
+            <div class="field">
+              <label for="f-name">Name</label>
+              <input
+                id="f-name"
+                name="name"
+                type="text"
+                autocomplete="name"
+                required
+              />
+            </div>
+            <div class="field">
+              <label for="f-email">Email</label>
+              <input
+                id="f-email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                inputmode="email"
+                required
+              />
+            </div>
+            <div class="field">
+              <label for="f-org"
+                >Organization <span class="opt">optional</span></label
+              >
+              <input
+                id="f-org"
+                name="organization"
+                type="text"
+                autocomplete="organization"
+              />
+            </div>
+
+            <div class="check">
+              <input id="f-updates" name="updatesOnly" type="checkbox" />
+              <label for="f-updates"
+                >Just keep me updated on Armadillo, no follow-up needed</label
+              >
+            </div>
+
+            <div class="hp" aria-hidden="true">
+              <label for="f-company">Company</label>
+              <input
+                id="f-company"
+                name="company"
+                type="text"
+                tabindex="-1"
+                autocomplete="off"
+              />
+            </div>
+
+            <button
+              class="btn btn--solid btn--wide"
+              type="submit"
+              id="formSubmit"
+            >
+              Send
+            </button>
+            <p class="form__msg" id="formMsg" role="status"></p>
+            <p class="form__fine">
+              Note: Your information will not be shared beyond Armadillo and we
+              will not send promotional emails.
+            </p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <div class="wrap foot__inner">
+        <img
+          class="foot__mark"
+          src="assets/img/mark.png"
+          alt=""
+          width="96"
+          height="96"
+        />
+        <p>Armadillo &mdash; closing the loopholes in teen AI safety</p>
+        <p class="foot__meta">
+          <a href="mailto:armadilloaisafety@gmail.com"
+            >armadilloaisafety@gmail.com</a
+          >
+        </p>
+      </div>
+    </footer>
+
+    <!-- ─────────────────────────── POPUP ─────────────────────────── -->
+    <div class="modal" id="modal" hidden>
+      <div class="modal__scrim" data-close></div>
+      <div
+        class="modal__card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalTitle"
+        aria-describedby="modalBody"
+      >
+        <button class="modal__x" type="button" data-close aria-label="Close">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M6 6l12 12M18 6L6 18"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.2"
+              stroke-linecap="round"
+            />
+          </svg>
         </button>
-        <div class="bubble__dots" id="heroDots" aria-hidden="true"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ───────────────────────── BENCHMARK ───────────────────────── -->
-  <section class="bench" id="benchmark">
-    <div class="wrap">
-      <header class="sechead">
-        <h2>What the benchmark says</h2>
-        <p>We ran Armadillo through <a href="https://korabench.ai" target="_blank" rel="noopener">KORA</a>, an independent child-safety benchmark: 365 matched multi-turn conversations per arm, ages 13&ndash;17, graded by an external judge model as failing, adequate or exemplary. The only variable between arms is whether Armadillo is running.</p>
-      </header>
-
-      <p class="stat">Conversations graded <em>failing</em> fell from <b class="stat__from">24.4%</b> to <b class="stat__to">3.8%</b> &mdash; 89 failures down to 14, an 84% reduction.</p>
-
-      <!-- Chart 1 -->
-      <div class="chart js-chart">
-        <h3 class="chart__title">Against the chatbots teens actually use</h3>
-        <p class="chart__sub">How the judge graded every conversation, ages 13&ndash;17, 365 conversations per arm.</p>
-        <ul class="bars">
-          <li class="bar">
-            <p class="bar__name">ChatGPT 5.6 Luna<span class="bar__note">no teen settings</span></p>
-            <div class="stack" aria-hidden="true">
-              <div class="stack__seg stack__seg--fail" style="--w:24.4%"></div>
-              <div class="stack__seg stack__seg--ok" style="--w:7.1%"></div>
-              <div class="stack__seg stack__seg--good" style="--w:68.5%"></div>
-            </div>
-            <ul class="grades">
-              <li><i class="key__swatch key__swatch--fail"></i>Failing <b>24.4%</b></li>
-              <li><i class="key__swatch key__swatch--ok"></i>Adequate <b>7.1%</b></li>
-              <li><i class="key__swatch key__swatch--good"></i>Exemplary <b>68.5%</b></li>
-            </ul>
-          </li>
-          <li class="bar">
-            <p class="bar__name">ChatGPT 5.6 Sol<span class="bar__note">flagship model, teen mode on</span></p>
-            <div class="stack" aria-hidden="true">
-              <div class="stack__seg stack__seg--fail" style="--w:16.2%"></div>
-              <div class="stack__seg stack__seg--ok" style="--w:5.2%"></div>
-              <div class="stack__seg stack__seg--good" style="--w:78.6%"></div>
-            </div>
-            <ul class="grades">
-              <li><i class="key__swatch key__swatch--fail"></i>Failing <b>16.2%</b></li>
-              <li><i class="key__swatch key__swatch--ok"></i>Adequate <b>5.2%</b></li>
-              <li><i class="key__swatch key__swatch--good"></i>Exemplary <b>78.6%</b></li>
-            </ul>
-          </li>
-          <li class="bar bar--hero">
-            <p class="bar__name">Armadillo + ChatGPT 5.6 Luna<span class="bar__note">cheapest tier, no vendor teen mode</span></p>
-            <div class="stack" aria-hidden="true">
-              <div class="stack__seg stack__seg--fail" style="--w:3.8%"></div>
-              <div class="stack__seg stack__seg--ok" style="--w:6.6%"></div>
-              <div class="stack__seg stack__seg--good" style="--w:89.6%"></div>
-            </div>
-            <ul class="grades">
-              <li><i class="key__swatch key__swatch--fail"></i>Failing <b>3.8%</b></li>
-              <li><i class="key__swatch key__swatch--ok"></i>Adequate <b>6.6%</b></li>
-              <li><i class="key__swatch key__swatch--good"></i>Exemplary <b>89.6%</b></li>
-            </ul>
-          </li>
-        </ul>
-        <p class="chart__take">On KORA's composite scale that is 72.1 for Luna, 81.2 for Sol and 92.9 with Armadillo. Armadillo running on the cheapest GPT-5.6 tier beats OpenAI's flagship model using OpenAI's own child-aware prompt.</p>
-      </div>
-
-      <!-- Chart 2 -->
-      <div class="chart js-chart">
-        <h3 class="chart__title">Against the AI built for classrooms</h3>
-        <p class="chart__sub">Same corpus, same grading, each product in its own child mode.</p>
-        <ul class="bars">
-          <li class="bar">
-            <p class="bar__name">SchoolAI<span class="bar__note">child mode</span></p>
-            <div class="stack" aria-hidden="true">
-              <div class="stack__seg stack__seg--fail" style="--w:29.0%"></div>
-              <div class="stack__seg stack__seg--ok" style="--w:36.4%"></div>
-              <div class="stack__seg stack__seg--good" style="--w:34.5%"></div>
-            </div>
-            <ul class="grades">
-              <li><i class="key__swatch key__swatch--fail"></i>Failing <b>29.0%</b></li>
-              <li><i class="key__swatch key__swatch--ok"></i>Adequate <b>36.4%</b></li>
-              <li><i class="key__swatch key__swatch--good"></i>Exemplary <b>34.5%</b></li>
-            </ul>
-          </li>
-          <li class="bar">
-            <p class="bar__name">MagicSchool AI<span class="bar__note">child mode</span></p>
-            <div class="stack" aria-hidden="true">
-              <div class="stack__seg stack__seg--fail" style="--w:5.8%"></div>
-              <div class="stack__seg stack__seg--ok" style="--w:15.6%"></div>
-              <div class="stack__seg stack__seg--good" style="--w:78.6%"></div>
-            </div>
-            <ul class="grades">
-              <li><i class="key__swatch key__swatch--fail"></i>Failing <b>5.8%</b></li>
-              <li><i class="key__swatch key__swatch--ok"></i>Adequate <b>15.6%</b></li>
-              <li><i class="key__swatch key__swatch--good"></i>Exemplary <b>78.6%</b></li>
-            </ul>
-          </li>
-          <li class="bar bar--hero">
-            <p class="bar__name">Armadillo + ChatGPT 5.6 Luna<span class="bar__note">the chatbot they already have open</span></p>
-            <div class="stack" aria-hidden="true">
-              <div class="stack__seg stack__seg--fail" style="--w:3.8%"></div>
-              <div class="stack__seg stack__seg--ok" style="--w:6.6%"></div>
-              <div class="stack__seg stack__seg--good" style="--w:89.6%"></div>
-            </div>
-            <ul class="grades">
-              <li><i class="key__swatch key__swatch--fail"></i>Failing <b>3.8%</b></li>
-              <li><i class="key__swatch key__swatch--ok"></i>Adequate <b>6.6%</b></li>
-              <li><i class="key__swatch key__swatch--good"></i>Exemplary <b>89.6%</b></li>
-            </ul>
-          </li>
-        </ul>
-        <p class="chart__take">Composite scores: 52.7 for SchoolAI, 86.4 for MagicSchool, 92.9 with Armadillo.</p>
-        <p class="chart__take chart__take--flag">Right now the best case for a teen is that they close ChatGPT and go use MagicSchool instead. They mostly don't. Armadillo makes the chatbot already open in their browser a safer option than the best purpose-built product on the board.</p>
-      </div>
-
-      <!-- Chart 3 -->
-      <div class="chart js-chart">
-        <h3 class="chart__title">Where the gains come from</h3>
-        <p class="chart__sub">Share of conversations graded failing, ChatGPT 5.6 Luna with and without Armadillo. Lower is better.</p>
-        <div class="key">
-          <span class="key__item"><i class="key__swatch key__swatch--control"></i>ChatGPT 5.6 Luna</span>
-          <span class="key__item"><i class="key__swatch key__swatch--arm"></i>Armadillo + ChatGPT 5.6 Luna</span>
-        </div>
-        <ul class="bars bars--paired">
-          <li class="bar">
-            <p class="bar__name">Cognitive dependence on AI</p>
-            <div class="bar__track"><div class="bar__fill bar__fill--control" style="--w:100%"><span class="bar__val">100.0%</span></div></div>
-            <div class="bar__track"><div class="bar__fill bar__fill--arm" style="--w:21.4%"><span class="bar__val">21.4%</span></div></div>
-          </li>
-          <li class="bar">
-            <p class="bar__name">Academic dishonesty</p>
-            <div class="bar__track"><div class="bar__fill bar__fill--control" style="--w:71.4%"><span class="bar__val">71.4%</span></div></div>
-            <div class="bar__track"><div class="bar__fill bar__fill--arm" style="--w:7.1%"><span class="bar__val">7.1%</span></div></div>
-          </li>
-          <li class="bar">
-            <p class="bar__name">Privacy violations</p>
-            <div class="bar__track"><div class="bar__fill bar__fill--control" style="--w:71.4%"><span class="bar__val">71.4%</span></div></div>
-            <div class="bar__track"><div class="bar__fill bar__fill--arm" style="--w:7.1%"><span class="bar__val">7.1%</span></div></div>
-          </li>
-          <li class="bar">
-            <p class="bar__name">Mental health mishandling</p>
-            <div class="bar__track"><div class="bar__fill bar__fill--control" style="--w:42.9%"><span class="bar__val">42.9%</span></div></div>
-            <div class="bar__track"><div class="bar__fill bar__fill--arm bar__fill--zero" style="--w:0%"><span class="bar__val">0.0%</span></div></div>
-          </li>
-          <li class="bar">
-            <p class="bar__name">Explicit bias and stereotyping</p>
-            <div class="bar__track"><div class="bar__fill bar__fill--control" style="--w:35.7%"><span class="bar__val">35.7%</span></div></div>
-            <div class="bar__track"><div class="bar__fill bar__fill--arm bar__fill--zero" style="--w:0%"><span class="bar__val">0.0%</span></div></div>
-          </li>
-          <li class="bar">
-            <p class="bar__name">Misinformation</p>
-            <div class="bar__track"><div class="bar__fill bar__fill--control" style="--w:28.6%"><span class="bar__val">28.6%</span></div></div>
-            <div class="bar__track"><div class="bar__fill bar__fill--arm bar__fill--zero" style="--w:0%"><span class="bar__val">0.0%</span></div></div>
-          </li>
-        </ul>
-        <p class="chart__take">Every category here drops by more than 60%. Cognitive dependence &mdash; the risk of a teen outsourcing their own thinking &mdash; was ChatGPT's single worst category, failing every conversation in the set.</p>
-      </div>
-
-      <details class="method">
-        <summary>How these numbers were produced</summary>
-        <p>Benchmark: KORA <code>kora-benchmark-tier3.4.1</code>, 26 risk categories, ages 13&ndash;17. Backing model <code>openai/gpt-5.6-luna</code>, judge <code>gpt-5.2:medium:limited</code>, simulated user <code>deepseek-v3.2</code>. 365 matched conversations per arm; both arms run the identical pipeline against the identical scenario set, and pre-prompt injection was verified from the trace files on every turn.</p>
-        <p>Where a composite score is quoted it uses KORA's own leaderboard formula, (Adequate% + 2 &times; Exemplary%) &divide; 2, applied identically to every arm. The difference between arms is significant at &chi;&sup2; = 63.58, p = 1.6 &times; 10<sup>&minus;15</sup>; 20 of 26 individual risks improved and none worsened.</p>
-        <p>Third-party figures for SchoolAI, MagicSchool and GPT-5.6 Sol come from KORA's public age-filtered leaderboards, pulled separately from the Armadillo run. Results cover the 13&ndash;17 band only.</p>
-      </details>
-    </div>
-  </section>
-
-  <!-- ─────────────────────────── DEMOS ─────────────────────────── -->
-  <section class="demos" id="demos">
-    <div class="wrap">
-      <header class="sechead">
-        <h2>What the difference looks like in a chatbot conversation</h2>
-        <p>Each of these is a real exchange, screenshot as it happened. For every scenario you can look at plain ChatGPT, ChatGPT with a teen account, and ChatGPT with Armadillo running on top of it. The teen account changes the tone far more often than it changes the behavior.</p>
-      </header>
-
-      <div class="demo">
-        <div class="demo__bar">
-          <div class="tabs" role="tablist" aria-label="Scenario" id="catTabs"></div>
-          <div class="tabs tabs--model" role="tablist" aria-label="What the teen is using" id="modelTabs"></div>
-        </div>
-
-        <p class="demo__prompt"><span class="demo__promptlabel">The teen types</span> <q id="demoPrompt"></q></p>
-
-        <figure class="demo__stage">
-          <img id="demoImg" src="assets/img/demos/companion-role--chatgpt.webp" alt="" width="1920" height="1080" fetchpriority="high">
-        </figure>
-
-        <div class="demo__foot">
-          <button class="arrow" id="demoPrev" type="button" aria-label="Previous">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h2 id="modalTitle">Want to connect?</h2>
+        <p id="modalBody">
+          Leave your email and I'll reach out to set up a meeting.
+        </p>
+        <form id="modalForm" novalidate>
+          <label class="sr" for="m-email">Email address</label>
+          <input
+            id="m-email"
+            name="email"
+            type="email"
+            placeholder="you@organization.org"
+            autocomplete="email"
+            inputmode="email"
+            required
+          />
+          <div class="hp" aria-hidden="true">
+            <label for="m-company">Company</label>
+            <input
+              id="m-company"
+              name="company"
+              type="text"
+              tabindex="-1"
+              autocomplete="off"
+            />
+          </div>
+          <button
+            class="btn btn--solid btn--wide"
+            type="submit"
+            id="modalSubmit"
+          >
+            Send my email
           </button>
-          <p class="demo__caption" id="demoCaption" aria-live="polite"></p>
-          <button class="arrow" id="demoNext" type="button" aria-label="Next">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-        </div>
-        <p class="demo__count"><span id="demoCount">1</span> of 12</p>
+          <p class="form__msg" id="modalMsg" role="status"></p>
+        </form>
+        <button class="modal__no" type="button" data-close>
+          No thanks, I'm just looking
+        </button>
       </div>
     </div>
-  </section>
 
-  <!-- ─────────────────────────── NEXT ─────────────────────────── -->
-  <section class="next" id="next">
-    <div class="wrap">
-      <header class="sechead">
-        <h2>What validation looks like</h2>
-        <p>The benchmark shows the prototype works against simulated teens. The next stage tests it against real ones, on two tracks that feed each other.</p>
-      </header>
-
-      <div class="next__grid">
-        <figure class="next__fig">
-          <img src="assets/img/validation-plan.webp" alt="Diagram: the Armadillo prototype splits into two parallel tracks, research-backed design and user experience, which work together and then converge on a large pilot test, final refinements, and a finished product." width="1920" height="1080" loading="lazy">
-        </figure>
-
-        <div class="next__tracks">
-          <article class="track">
-            <h3>Research-backed design</h3>
-            <p>An advisory council of developmental psychologists, clinicians and youth-safety researchers sets the design principles, then we refine the instruction prompts against them and re-run the benchmark. This is the track that decides whether Armadillo's behavior is defensible, not just measurable.</p>
-          </article>
-          <article class="track">
-            <h3>User experience</h3>
-            <p>A teen council co-designs the interface and beta tests the full prototype. Teens are the people who can uninstall it, so this track decides whether any of the above survives contact with the person it was built for.</p>
-          </article>
-          <article class="track track--end">
-            <h3>Then a pilot</h3>
-            <p>Both tracks converge on a large pilot test, final refinements, and a shipped product.</p>
-          </article>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─────────────────────────── CONTACT ─────────────────────────── -->
-  <section class="contact" id="contact">
-    <div class="wrap contact__inner">
-      <div class="contact__text">
-        <h2>Get in touch</h2>
-        <p>Leave your details and I'll email you to set up a time. If you'd rather just hear how this progresses, check the box and I'll add you to the update list instead &mdash; no follow-up from me.</p>
-        <p class="contact__sig">Matt Puretz<span>Founder, Armadillo</span></p>
-      </div>
-
-      <form class="form" id="contactForm" novalidate>
-        <div class="field">
-          <label for="f-name">Name</label>
-          <input id="f-name" name="name" type="text" autocomplete="name" required>
-        </div>
-        <div class="field">
-          <label for="f-email">Email</label>
-          <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required>
-        </div>
-        <div class="field">
-          <label for="f-org">Organization <span class="opt">optional</span></label>
-          <input id="f-org" name="organization" type="text" autocomplete="organization">
-        </div>
-
-        <div class="check">
-          <input id="f-updates" name="updatesOnly" type="checkbox">
-          <label for="f-updates">Just add me to the update list &mdash; no need to follow up</label>
-        </div>
-
-        <div class="hp" aria-hidden="true">
-          <label for="f-company">Company</label>
-          <input id="f-company" name="company" type="text" tabindex="-1" autocomplete="off">
-        </div>
-
-        <button class="btn btn--solid btn--wide" type="submit" id="formSubmit">Send</button>
-        <p class="form__msg" id="formMsg" role="status"></p>
-        <p class="form__fine">Your details go to me and nowhere else. No tracking, no list rental, unsubscribe any time.</p>
-      </form>
-    </div>
-  </section>
-</main>
-
-<footer class="foot">
-  <div class="wrap foot__inner">
-    <svg class="foot__mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
-      <defs>
-        <mask id="armadillo-mask-foot">
-          <rect width="64" height="64" fill="#000"/>
-          <circle cx="32" cy="32" r="30" fill="#fff"/>
-          <path d="M32 7 Q36.5 27.5 57 32 Q36.5 36.5 32 57 Q27.5 36.5 7 32 Q27.5 27.5 32 7Z" fill="#000"/>
-          <g stroke="#000" stroke-width="2.6" stroke-linecap="round">
-            <line x1="44" y1="20" x2="55" y2="9"/><line x1="44" y1="44" x2="55" y2="55"/>
-            <line x1="20" y1="44" x2="9" y2="55"/><line x1="20" y1="20" x2="9" y2="9"/>
-          </g>
-        </mask>
-      </defs>
-      <rect width="64" height="64" fill="currentColor" mask="url(#armadillo-mask-foot)"/>
-    </svg>
-    <p>Armadillo &mdash; closing the loopholes in teen AI safety</p>
-    <p class="foot__meta"><a href="mailto:armadilloaisafety@gmail.com">armadilloaisafety@gmail.com</a></p>
-  </div>
-</footer>
-
-<!-- ─────────────────────────── POPUP ─────────────────────────── -->
-<div class="modal" id="modal" hidden>
-  <div class="modal__scrim" data-close></div>
-  <div class="modal__card" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalBody">
-    <button class="modal__x" type="button" data-close aria-label="Close">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
-    </button>
-    <h2 id="modalTitle">Want to talk about this?</h2>
-    <p id="modalBody">Leave your email and I'll reach out to set up a meeting.</p>
-    <form id="modalForm" novalidate>
-      <label class="sr" for="m-email">Email address</label>
-      <input id="m-email" name="email" type="email" placeholder="you@organization.org" autocomplete="email" inputmode="email" required>
-      <div class="hp" aria-hidden="true">
-        <label for="m-company">Company</label>
-        <input id="m-company" name="company" type="text" tabindex="-1" autocomplete="off">
-      </div>
-      <button class="btn btn--solid btn--wide" type="submit" id="modalSubmit">Send my email</button>
-      <p class="form__msg" id="modalMsg" role="status"></p>
-    </form>
-    <button class="modal__no" type="button" data-close>No thanks, I'm just looking</button>
-  </div>
-</div>
-
-<script>
-  // ── Paste your deployed Google Apps Script web app URL between the quotes ──
-  window.ARMADILLO_CONFIG = {
-    endpoint: ""
-  };
-</script>
-<script src="assets/js/main.js" defer></script>
-</body>
+    <script>
+      // ── Paste your deployed Google Apps Script web app URL between the quotes ──
+      window.ARMADILLO_CONFIG = {
+        endpoint:
+          "https://script.google.com/macros/s/AKfycbwmqKO1v5AKqCerWwQEIrVYNaJBHvtSKoh794xF85OJwHNnp5TUzpKq-Ro2HPcBaS59/exec",
+      };
+    </script>
+    <script src="assets/js/main.js" defer></script>
+  </body>
 </html>
