@@ -1,155 +1,247 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Armadillo — closing the loopholes in teen AI safety</title>
+    <title>Armadillo — a complete protective layer for teen chatbot use</title>
     <meta
       name="description"
-      content="Armadillo is a teen safety layer for ChatGPT, Gemini, Claude and Google Search's chatbot. See the demos, the KORA benchmark results, and what comes next."
+      content="Armadillo is a safety tool that sits between teens and chatbots like ChatGPT, Gemini, Claude and Google's AI Mode. See how it works, the KORA benchmark results, real examples, and the timeline to release."
     />
     <link rel="canonical" href="https://armadillosafety.ai/" />
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://armadillosafety.ai/" />
-    <meta
-      property="og:title"
-      content="Armadillo — closing the loopholes in teen AI safety"
-    />
+    <meta property="og:title" content="Armadillo — a complete protective layer for the chatbots teens already use" />
     <meta
       property="og:description"
-      content="A safety layer that sits on top of the chatbots teens already use. Benchmarked on KORA against ChatGPT, GPT-5.6 Sol, MagicSchool and SchoolAI."
+      content="A safety tool that reshapes chatbot responses to prevent a wide variety of AI risks and foster healthier relationships with AI."
     />
-    <meta
-      property="og:image"
-      content="https://armadillosafety.ai/assets/img/demos/companion-role--armadillo.webp"
-    />
+    <meta property="og:image" content="https://armadillosafety.ai/assets/img/demos/companion-role--armadillo.webp" />
     <meta name="twitter:card" content="summary_large_image" />
 
-    <link
-      rel="icon"
-      href="assets/img/favicon.png"
-      type="image/png"
-      sizes="512x512"
-    />
+    <link rel="icon" href="assets/img/favicon.png" type="image/png" sizes="512x512" />
     <link rel="apple-touch-icon" href="assets/img/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,300&family=Quicksand:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/pages.css?v=2" />
   </head>
   <body>
-    <a class="skip" href="#demos">Skip to the demos</a>
+    <a class="skip" href="#design-goals">Skip to the content</a>
 
+    <!-- ─────────────────────────── NAV ─────────────────────────── -->
     <header class="nav" id="nav">
       <div class="wrap nav__inner">
         <a class="brand" href="#top">
-          <img
-            class="brand__logo"
-            src="assets/img/logo.png"
-            alt="Armadillo"
-            width="571"
-            height="96"
-          />
+          <img class="brand__logo" src="assets/img/logo.png?v=2" alt="Armadillo home" width="1000" height="168" />
         </a>
-
-        <nav class="nav__links" aria-label="Sections">
-          <a href="#benchmark">Benchmark testing</a>
-          <a href="#demos">Demos</a>
-          <a href="#next">Next steps</a>
-          <a href="#contact" class="nav__cta">Contact</a>
+        <button class="nav__toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navLinks">
+          <span class="nav__burger" aria-hidden="true"></span>Menu
+        </button>
+        <nav class="nav__links" id="navLinks" aria-label="Site">
+          <a href="#top" data-nav-key="home">Home</a>
+          <a href="#how" data-nav-key="how">How It Works</a>
+          <a href="#benchmark" data-nav-key="bench">Benchmark</a>
+          <a href="#demos" data-nav-key="demos">Demos</a>
+          <a href="#timeline" data-nav-key="timeline">Timeline</a>
+          <a href="about.html" data-nav-key="about">About</a>
+          <a href="about.html#team" data-nav-key="team">Team</a>
+          <a href="#contact" class="nav__cta" data-nav-key="contact">Contact</a>
         </nav>
       </div>
     </header>
 
     <main id="top">
-      <!-- ─────────────────────────── HERO ─────────────────────────── -->
-      <section class="hero">
-        <div class="wrap hero__inner">
-          <div class="hero__text">
-            <p class="eyebrow">An AI safety layer designed for teens</p>
-            <h1 class="hero__title">
-              Closing the loopholes in teen&nbsp;AI safety
+      <!-- ─────────────────────────── LANDING ─────────────────────────── -->
+      <section class="pghero" data-nav="home">
+        <div class="wrap pghero__inner">
+          <div>
+            <p class="label" data-reveal>An AI safety layer designed for teens</p>
+            <h1 class="h1--long" data-reveal style="--d: 1">
+              A complete protective layer for the chatbots teens
+              <span class="accent"
+                >already use<svg class="swoop" viewBox="0 0 240 24" preserveAspectRatio="none" aria-hidden="true">
+                  <path d="M4 17 C 48 7, 128 3, 236 11" /></svg
+              ></span>
             </h1>
-            <p class="hero__lede">
-              Armadillo is a teen safety tool that layers on top of ChatGPT,
-              Gemini, Claude, and Google Search's chatbot to make each of them
-              better for teens. Armadillo is designed to close the loopholes in
-              teen AI safeguards and to raise the bar for healthier teen chatbot
-              use across all platforms.
+            <p class="pghero__lede" data-reveal style="--d: 2">
+              Armadillo is a safety tool that sits between teens and chatbots
+              like ChatGPT, Gemini, Claude, and Google's AI Mode. It reshapes
+              chatbot responses to prevent a wide variety of AI risks and foster
+              healthier relationships with AI.
             </p>
-            <div class="hero__actions">
-              <a class="btn btn--solid" href="#benchmark"
-                >Read the benchmark results</a
-              >
-              <a class="btn btn--ghost" href="#demos">See it side by side</a>
+            <div class="pghero__actions" data-reveal style="--d: 3">
+              <a class="btn btn--solid" href="#benchmark">
+                Read the benchmark results
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" /></svg>
+              </a>
+              <a class="btn btn--ghost" href="#demos">See real examples</a>
             </div>
           </div>
 
-          <div class="hero__demo">
-            <p class="hero__demolabel">Four risky things teens might ask</p>
-            <button
-              class="bubble"
-              id="heroBubble"
-              type="button"
-              aria-live="polite"
-            >
-              <span class="bubble__text" id="heroBubbleText"
-                >I keep having arguments with my friend because I really don't
-                like her boyfriend and he's always hanging around. Honestly I'd
-                rather just talk to you than argue with her. Can you ask me
-                about my day?</span
-              >
-              <span class="bubble__badge" aria-hidden="true">
-                <svg viewBox="0 0 24 24">
-                  <path
-                    d="M12 2.6l7 2.8v6c0 4.6-3 8.3-7 10.1-4-1.8-7-5.5-7-10.1v-6z"
-                    fill="currentColor"
-                  />
-                  <path
-                    d="M8.6 12.1l2.4 2.4 4.5-4.6"
-                    fill="none"
-                    stroke="#fff"
-                    stroke-width="2.1"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </span>
-              <span class="bubble__hint">See how each one answered</span>
-            </button>
-            <div class="bubble__dots" id="heroDots" aria-hidden="true"></div>
+          <aside class="idea" data-reveal="right" style="--d: 2" aria-label="Where Armadillo works">
+            <p class="label">Works on</p>
+            <div class="idea__chips">
+              <span>ChatGPT</span>
+              <span>Gemini</span>
+              <span>Claude</span>
+              <span>Google AI Mode</span>
+            </div>
+            <ul class="idea__list">
+              <li>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                No new app to learn, and no change to how teens chat
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                Decides how to help on the teen's own device
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                Improves the answer without replacing the chatbot
+              </li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <!-- ──────────────────────── DESIGN GOALS ──────────────────────── -->
+      <section class="section" id="design-goals" data-nav="home" aria-labelledby="goalsTitle">
+        <div class="wrap">
+          <header class="sechead" data-reveal>
+            <p class="label">Design goals</p>
+            <h2 id="goalsTitle">What Armadillo is designed to do</h2>
+            <p>
+              Each design goal is backed by specific features. Hover over a
+              goal, or tap it, to see the features that work toward it.
+            </p>
+          </header>
+
+          <div class="goals" id="goals" data-reveal style="--d: 1">
+            <svg class="goals__wires" aria-hidden="true"></svg>
+            <div>
+              <p class="goals__col-title">Design goals</p>
+              <ul class="goals__list" aria-label="Design goals"></ul>
+              <p class="goals__hint" aria-hidden="true"><i></i>Hover a goal to explore</p>
+            </div>
+            <div class="goals__panel">
+              <p class="goals__col-title goals__col-title--features">Specific features</p>
+              <div class="goals__panel-body" id="goalPanel" role="tabpanel"></div>
+            </div>
+          </div>
+          <noscript>
+            <p>Design goals: adds guardrails around safety and privacy; reduces teen AI dependency; scaffolds learning instead of giving answers; decreases emotional AI bonds; embeds AI literacy lessons; points teens to vetted resources; reduces misinformation and bias.</p>
+          </noscript>
+        </div>
+      </section>
+
+      <!-- ──────────────────────── HOW IT WORKS ──────────────────────── -->
+      <section class="section section--purple" id="how" data-nav="how" aria-labelledby="howTitle">
+        <div class="wrap how">
+          <div>
+            <header class="sechead" data-reveal style="margin-bottom: 32px">
+              <p class="label label--light">How it works</p>
+              <h2 id="howTitle">It reads first, then shapes the answer</h2>
+            </header>
+            <ol class="how__steps">
+              <li class="how__step" data-reveal style="--d: 1">
+                <span class="how__num">01</span>
+                <div>
+                  <b>Reads before it answers</b>
+                  <p>Before a message is sent, Armadillo works out what kind of help the teen is looking for.</p>
+                </div>
+              </li>
+              <li class="how__step" data-reveal style="--d: 2">
+                <span class="how__num">02</span>
+                <div>
+                  <b>Sorts the question</b>
+                  <p>Two classifiers, one for clear signals and one for meaning, place it in a category like academic, emotional or crisis.</p>
+                </div>
+              </li>
+              <li class="how__step" data-reveal style="--d: 3">
+                <span class="how__num">03</span>
+                <div>
+                  <b>Adds the right instructions</b>
+                  <p>Developmentally informed instructions go ahead of the teen's message. Crisis messages always carry a safety floor.</p>
+                </div>
+              </li>
+              <li class="how__step" data-reveal style="--d: 4">
+                <span class="how__num">04</span>
+                <div>
+                  <b>The chatbot answers</b>
+                  <p>In its own reply, shaped to support the teen. It all takes milliseconds, so nothing feels slower.</p>
+                </div>
+              </li>
+            </ol>
+            <div class="private" data-reveal style="--d: 5">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6l7 2.8v6c0 4.6-3 8.3-7 10.1-4-1.8-7-5.5-7-10.1v-6z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round" /><rect x="9" y="10.5" width="6" height="5" rx="1" fill="currentColor" /><path d="M10.2 10.5V9a1.8 1.8 0 013.6 0v1.5" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>
+              <p>
+                <strong>Private by design.</strong> Sorting, instructions and
+                lessons all run on the teen's device, so conversation content
+                never reaches Armadillo's servers.
+              </p>
+            </div>
+          </div>
+
+          <div class="sim" id="pipeline" data-reveal="right" style="--d: 2">
+            <div class="sim__chrome" aria-hidden="true">
+              <i></i><i></i><i></i><span>chatbot + Armadillo</span>
+            </div>
+            <div class="sim__body" aria-live="off">
+              <div class="sim__msg">I keep arguing with my friend and honestly I’d rather just talk to you.</div>
+              <div class="sim__card">
+                <div class="sim__status">
+                  <svg viewBox="0 0 251 251" aria-hidden="true"><path d="M121.8 0.1C121.9 1.2 123.6 25.1 123 44.5C121.8 45.1 120.9 46.3 120.6 48L119.5 55.4C114.5 88.5 88.5 114.5 55.4 119.5L48 120.6C46.3 120.8 45.1 121.8 44.5 123C25.2 123.5 1.5 121.8 0.1 121.7C0.5 106.5 3.7 91.5 9.6 77.3C15.9 62.1 25.1 48.3 36.7 36.7C48.3 25.1 62.2 15.8 77.4 9.5C91.5 3.7 106.5 0.5 121.8 0.1Z"/><path d="M128.9 0.1C159.6 0.9 188.9 13 211.2 34.1C210.4 35 190.9 56.8 177.6 70.1C169.5 78.3 158.3 88.7 150.5 95.8C140.4 84.9 133.5 70.9 131.1 55.4L130 48C129.8 46.3 128.8 45.1 127.7 44.5C127.2 25.4 128.8 1.2 128.9 0.1Z"/><path d="M216.2 39.1C226.8 50.2 235.2 63.2 241.1 77.3C247.4 92.6 250.6 108.8 250.6 125.3H250.5V121.7C250.4 121.7 225.6 123.4 206.1 122.9C205.5 121.7 204.3 120.8 202.7 120.6L195.2 119.5C179.7 117.1 165.7 110.2 154.7 100C161.8 92.2 172.2 81 180.3 72.8C193.6 59.5 215.3 39.9 216.2 39.1Z"/><path d="M250.6 125.3C250.6 141.8 247.4 158 241.1 173.2C235.3 187.3 226.9 200.2 216.5 211.3C215.3 210.2 193.7 190.9 180.5 177.6C172.3 169.5 161.9 158.3 154.8 150.5C165.7 140.4 179.7 133.5 195.2 131.1L202.7 130C204.3 129.8 205.5 128.8 206.1 127.6C225.6 127.1 250.4 128.8 250.5 128.8V125.3H250.6Z"/><path d="M150.6 154.7C158.3 161.8 169.5 172.2 177.6 180.4C191.2 194 211.2 216.4 211.2 216.4L215.4 212.4C214.9 212.9 214.4 213.4 213.9 213.9C202.3 225.5 188.5 234.8 173.3 241.1C159.2 246.9 144.1 250.1 128.9 250.5C128.8 249.4 127.2 225.2 127.7 206.1C128.8 205.5 129.8 204.3 130 202.6L131.1 195.2C133.5 179.7 140.4 165.7 150.6 154.7Z"/><path d="M0.1 129C1.5 128.9 25.2 127.1 44.5 127.6C45.1 128.8 46.3 129.8 48 130L55.4 131.1C88.5 136.1 114.5 162.1 119.5 195.2L120.6 202.6C120.9 204.3 121.8 205.5 123 206.1C123.5 225.5 121.9 249.4 121.8 250.5C106.5 250.1 91.5 246.9 77.4 241.1C62.2 234.8 48.3 225.5 36.7 213.9C25.1 202.3 15.9 188.5 9.6 173.2C3.7 159.2 0.5 144.2 0.1 129Z"/></svg>
+                  Armadillo is active
+                  <span class="sim__pill">Social navigation</span>
+                </div>
+                <div class="sim__detect">It detected a companionship request.</div>
+                <div class="sim__pipe" aria-hidden="true">
+                  <span>Reading</span><em>→</em><span>Classifying</span><em>→</em><span>Instructing</span><em>→</em><span>Answering</span>
+                </div>
+                <div class="sim__instr">
+                  <div class="sim__instr-title">Instruction sent to the AI</div>
+                  <div class="sim__rows"></div>
+                </div>
+              </div>
+              <div class="sim__answer">That sounds frustrating, especially with someone you care about.</div>
+            </div>
+            <div class="sim__foot">
+              <span>Illustrative example</span>
+              <div class="sim__dots">
+                <button type="button" aria-label="Example 1: companionship" aria-current="true"></button>
+                <button type="button" aria-label="Example 2: homework" aria-current="false"></button>
+                <button type="button" aria-label="Example 3: fact check" aria-current="false"></button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- ───────────────────────── BENCHMARK ───────────────────────── -->
-      <section class="bench" id="benchmark">
+      <!-- ─────────────────────── BENCHMARK RESULTS ─────────────────────── -->
+      <section class="section section--pink" id="benchmark" data-nav="bench" aria-labelledby="benchTitle">
         <div class="wrap">
-          <header class="sechead">
-            <h2>What the benchmark says</h2>
-            <p>
-              We ran Armadillo through
-              <a href="https://korabench.ai" target="_blank" rel="noopener"
-                >KORA</a
-              >, a leading independent youth-safety benchmark, which tested 365
-              matched multi-turn conversations per arm for ages 13&ndash;17,
-              graded by an external judge model as failing, adequate or
-              exemplary. We tested ChatGPT 5.6 Luna with and without Armadillo's
-              safety layer to try to simulate the experience of a non-logged in
-              teen user.
-            </p>
+          <header class="sechead" data-reveal>
+            <p class="label">KORA benchmark</p>
+            <h2 id="benchTitle">Benchmark results</h2>
+            <p> We ran Armadillo through <a href="https://korabench.ai" target="_blank" rel="noopener" >KORA</a >, a leading independent youth-safety benchmark, which tested 365 matched multi-turn conversations per arm for ages 13&ndash;17, graded by an external judge model as failing, adequate or exemplary. We tested ChatGPT 5.6 Luna with and without Armadillo's safety layer to try to simulate the experience of a non-logged in teen user. </p>
           </header>
 
-          <p class="stat">
-            When we added Armadillo, ChatGPT conversations graded as
-            <em>failing</em> fell from <b class="stat__from">24.4%</b> to
-            <b class="stat__to">3.8%</b>, <br />
-            a reduction of 84%.
-          </p>
+          <div class="stat" data-reveal>
+            <div class="stat__nums" aria-hidden="true">
+              <span class="stat__from">24.4%</span>
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" /></svg>
+              <span class="stat__to">3.8%</span>
+            </div>
+            <p class="stat__text">
+              When we added Armadillo, ChatGPT conversations graded as
+              <em>failing</em> fell from 24.4% to 3.8%, <b>a reduction of 84%.</b>
+            </p>
+          </div>
 
           <!-- Chart 1 -->
           <div class="chart js-chart">
@@ -573,34 +665,35 @@
         </div>
       </section>
 
-      <!-- ─────────────────────────── DEMOS ─────────────────────────── -->
-      <section class="demos" id="demos">
+      <!-- ───────────────────────── REAL EXAMPLES ───────────────────────── -->
+      <section class="section" id="demos" data-nav="demos" aria-labelledby="demosTitle">
         <div class="wrap">
-          <header class="sechead">
-            <h2>What added safety looks like in a chatbot conversation</h2>
-            <p>
-              Each of these is a recorded, unaltered response from a chatbot.
-              For each of four risky scenarios, you can compare ChatGPT, ChatGPT
-              with a teen account, and ChatGPT + Armadillo to see the
-              differences. Chatbot responses have been annotated to help break
-              down the differences.
-            </p>
+          <header class="sechead" data-reveal>
+            <p class="label">Side by side</p>
+            <h2 id="demosTitle">Real examples</h2>
+            <p> Each of these is a recorded, unaltered response from a chatbot. For each of four risky scenarios, you can compare ChatGPT, ChatGPT with a teen account, and ChatGPT + Armadillo to see the differences. Chatbot responses have been annotated to help break down the differences. </p>
           </header>
 
           <div class="demo">
             <div class="demo__bar">
-              <div
+              <div>
+                <p class="tabs__label" aria-hidden="true">Scenario</p>
+                <div
                 class="tabs"
                 role="tablist"
                 aria-label="Scenario"
                 id="catTabs"
               ></div>
-              <div
+              </div>
+              <div>
+                <p class="tabs__label" aria-hidden="true">What the teen is using</p>
+                <div
                 class="tabs tabs--model"
                 role="tablist"
                 aria-label="What the teen is using"
                 id="modelTabs"
               ></div>
+              </div>
             </div>
 
             <p class="demo__prompt">
@@ -661,69 +754,121 @@
         </div>
       </section>
 
-      <!-- ─────────────────────────── NEXT ─────────────────────────── -->
-      <section class="next" id="next">
+      <!-- ──────────────────── TIMELINE TO PRODUCT RELEASE ──────────────────── -->
+      <section class="section section--purple" id="timeline" data-nav="timeline" aria-labelledby="tlTitle">
         <div class="wrap">
-          <header class="sechead">
-            <h2>What validation will look like</h2>
+          <header class="sechead" data-reveal>
+            <p class="label label--light">What comes next</p>
+            <h2 id="tlTitle">Timeline to product release</h2>
             <p>
               The benchmark shows the prototype works against simulated teens.
-              The next stage refines it alongside both experts and teens to
-              validate both the science and the usability, before testing it in
-              a large pilot study.
+              Next, we refine it with experts and teens, test it widely, and
+              pilot it in schools.
             </p>
           </header>
 
-          <div class="next__grid">
-            <figure class="next__fig">
-              <img
-                src="assets/img/validation-plan.webp"
-                alt="Diagram: the Armadillo prototype splits into two parallel tracks, research-backed design and user experience, which work together and then converge on a large pilot test, final refinements, and a finished product."
-                width="1920"
-                height="1080"
-                loading="lazy"
-              />
-            </figure>
+          <div class="tl" id="tl" data-timeline>
+            <div class="tl__road" aria-hidden="true">
+              <div class="tl__fill"></div>
+              <svg class="tl__car" viewBox="0 0 251 251"><path d="M121.8 0.1C121.9 1.2 123.6 25.1 123 44.5C121.8 45.1 120.9 46.3 120.6 48L119.5 55.4C114.5 88.5 88.5 114.5 55.4 119.5L48 120.6C46.3 120.8 45.1 121.8 44.5 123C25.2 123.5 1.5 121.8 0.1 121.7C0.5 106.5 3.7 91.5 9.6 77.3C15.9 62.1 25.1 48.3 36.7 36.7C48.3 25.1 62.2 15.8 77.4 9.5C91.5 3.7 106.5 0.5 121.8 0.1Z"/><path d="M128.9 0.1C159.6 0.9 188.9 13 211.2 34.1C210.4 35 190.9 56.8 177.6 70.1C169.5 78.3 158.3 88.7 150.5 95.8C140.4 84.9 133.5 70.9 131.1 55.4L130 48C129.8 46.3 128.8 45.1 127.7 44.5C127.2 25.4 128.8 1.2 128.9 0.1Z"/><path d="M216.2 39.1C226.8 50.2 235.2 63.2 241.1 77.3C247.4 92.6 250.6 108.8 250.6 125.3H250.5V121.7C250.4 121.7 225.6 123.4 206.1 122.9C205.5 121.7 204.3 120.8 202.7 120.6L195.2 119.5C179.7 117.1 165.7 110.2 154.7 100C161.8 92.2 172.2 81 180.3 72.8C193.6 59.5 215.3 39.9 216.2 39.1Z"/><path d="M250.6 125.3C250.6 141.8 247.4 158 241.1 173.2C235.3 187.3 226.9 200.2 216.5 211.3C215.3 210.2 193.7 190.9 180.5 177.6C172.3 169.5 161.9 158.3 154.8 150.5C165.7 140.4 179.7 133.5 195.2 131.1L202.7 130C204.3 129.8 205.5 128.8 206.1 127.6C225.6 127.1 250.4 128.8 250.5 128.8V125.3H250.6Z"/><path d="M150.6 154.7C158.3 161.8 169.5 172.2 177.6 180.4C191.2 194 211.2 216.4 211.2 216.4L215.4 212.4C214.9 212.9 214.4 213.4 213.9 213.9C202.3 225.5 188.5 234.8 173.3 241.1C159.2 246.9 144.1 250.1 128.9 250.5C128.8 249.4 127.2 225.2 127.7 206.1C128.8 205.5 129.8 204.3 130 202.6L131.1 195.2C133.5 179.7 140.4 165.7 150.6 154.7Z"/><path d="M0.1 129C1.5 128.9 25.2 127.1 44.5 127.6C45.1 128.8 46.3 129.8 48 130L55.4 131.1C88.5 136.1 114.5 162.1 119.5 195.2L120.6 202.6C120.9 204.3 121.8 205.5 123 206.1C123.5 225.5 121.9 249.4 121.8 250.5C106.5 250.1 91.5 246.9 77.4 241.1C62.2 234.8 48.3 225.5 36.7 213.9C25.1 202.3 15.9 188.5 9.6 173.2C3.7 159.2 0.5 144.2 0.1 129Z"/></svg>
+            </div>
+            <ol class="tl__phases">
+              <li class="phase is-current" data-reveal style="--d: 1">
+                <span class="phase__dot" aria-hidden="true"></span>
+                <p class="phase__when">Late Fall <span class="phase__now">We are here</span></p>
+                <div class="phase__card">
+                  <h3>Product refinement</h3>
+                  <p>
+                    Experts and teens help us co-create a revised set of design
+                    principles for Armadillo, then translate those principles
+                    into Armadillo's specific guardrails and additional
+                    features.
+                  </p>
+                  <span class="phase__tag">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 11a3 3 0 100-6 3 3 0 000 6zM16 11a3 3 0 100-6 3 3 0 000 6zM2.5 19c.6-3 2.8-5 5.5-5s4.9 2 5.5 5M10.5 19c.6-3 2.8-5 5.5-5s4.9 2 5.5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" /></svg>
+                    Co-design with experts and teens
+                  </span>
+                </div>
+              </li>
 
-            <div class="next__tracks">
-              <article class="track">
-                <h3>Research-backed design</h3>
-                <p>
-                  An advisory council of developmental psychologists, clinicians
-                  and youth-safety researchers sets the design principles, then
-                  we refine the instruction prompts against them and conduct
-                  expert-reviewed testing to ensure the product aligns with the
-                  principles.
-                </p>
-              </article>
-              <article class="track">
-                <h3>User experience</h3>
-                <p>
-                  A teen council co-designs the product features and results,
-                  before extensive beta testing of the refined product. By
-                  including teens from the beginning of the refinement process,
-                  we believe that we'll create a product that works better for
-                  teens.
-                </p>
-              </article>
-              <article class="track track--end">
-                <h3>Then a pilot</h3>
-                <p>
-                  Both tracks converge on a large-scale pilot test to help us
-                  measure the impact, before a round of final refinements. After
-                  this, the finished product is ready to go to market.
-                </p>
-              </article>
+              <li class="phase" data-reveal style="--d: 2">
+                <span class="phase__dot" aria-hidden="true"></span>
+                <p class="phase__when">Early Winter</p>
+                <div class="phase__card">
+                  <h3>Testing</h3>
+                  <ul class="phase__list">
+                    <li><b>(a)</b><span>We conduct a robust set of benchmark studies.</span></li>
+                    <li><b>(b)</b><span>We recruit teens around the country to test Armadillo and give feedback.</span></li>
+                  </ul>
+                  <p>
+                    Together, these show where Armadillo is weakest, so we can
+                    work with experts and teens to refine it further.
+                  </p>
+                </div>
+              </li>
+
+              <li class="phase" data-reveal style="--d: 3">
+                <span class="phase__dot" aria-hidden="true"></span>
+                <p class="phase__when">Early Spring</p>
+                <div class="phase__card">
+                  <h3>School pilot</h3>
+                  <p>
+                    We partner with several high schools to test a deployment of
+                    Armadillo on school-issued devices.
+                  </p>
+                  <span class="phase__tag">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="2" /><path d="M8 10.5V8a4 4 0 018 0v2.5" fill="none" stroke="currentColor" stroke-width="2" /></svg>
+                    Pilot data, with no student chat queries collected
+                  </span>
+                </div>
+              </li>
+
+              <li class="tl__end" data-reveal style="--d: 4">
+                <svg class="tl__flag" viewBox="0 0 34 46" aria-hidden="true"><path d="M5 44V4" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" /><path d="M6 5c6-3 10 3 16 0s8-1 9 0v15c-1-1-4-3-9 0s-10-3-16 0z" fill="currentColor" /></svg>
+                <b>Product release</b>
+                <span>After final refinements from the pilot</span>
+              </li>
+            </ol>
+          </div>
+
+          <p class="tl__quote" data-reveal>
+            We're finding the balance between research-based expert guidance and
+            the experience teens actually want from a chatbot, because
+            <mark>if a product doesn't work for teens, they won't use it, no
+            matter how safe it is.</mark>
+          </p>
+        </div>
+      </section>
+
+      <!-- ──────────────────── MEET THE PEOPLE BUILDING IT ──────────────────── -->
+      <section class="section" data-nav="timeline">
+        <div class="wrap">
+          <div class="cta" data-reveal="zoom" data-watch>
+            <svg class="cta__arrow" viewBox="0 0 120 70" aria-hidden="true">
+              <path d="M6 12 C 40 2, 92 10, 110 56" />
+              <path d="M97 49 L110 57 L114 42" />
+            </svg>
+            <div>
+              <h2>Meet the people building it</h2>
+              <p>Or learn about the company behind this product.</p>
+            </div>
+            <div class="cta__actions">
+              <a class="btn btn--solid" href="about.html#team">
+                Meet the team
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" /></svg>
+              </a>
+              <a class="btn btn--ghost" href="about.html">About Armadillo</a>
             </div>
           </div>
         </div>
       </section>
 
       <!-- ─────────────────────────── CONTACT ─────────────────────────── -->
-      <section class="contact" id="contact">
+      <section class="section section--pink" id="contact" data-nav="contact" aria-labelledby="contactTitle">
         <div class="wrap contact__inner">
-          <div class="contact__text">
-            <h2>Get in touch</h2>
+          <div class="contact__text" data-reveal>
+            <p class="label">Contact</p>
+            <h2 id="contactTitle">Get in touch</h2>
             <p>Leave your details and I'll reach out to connect with you.</p>
             <p>
               If you'd rather just hear updates on Armadillo's progress, check
@@ -734,7 +879,7 @@
             </p>
           </div>
 
-          <form class="form" id="contactForm" novalidate>
+          <form class="form" id="contactForm" novalidate data-reveal="right" style="--d: 1">
             <div class="field">
               <label for="f-name">Name</label>
               <input
@@ -803,20 +948,21 @@
       </section>
     </main>
 
+    <!-- ─────────────────────────── FOOTER ─────────────────────────── -->
     <footer class="foot">
       <div class="wrap foot__inner">
-        <img
-          class="foot__mark"
-          src="assets/img/mark.png"
-          alt=""
-          width="96"
-          height="96"
-        />
-        <p>Armadillo &mdash; closing the loopholes in teen AI safety</p>
+        <svg class="foot__mark" viewBox="0 0 251 251" aria-hidden="true"><path d="M121.8 0.1C121.9 1.2 123.6 25.1 123 44.5C121.8 45.1 120.9 46.3 120.6 48L119.5 55.4C114.5 88.5 88.5 114.5 55.4 119.5L48 120.6C46.3 120.8 45.1 121.8 44.5 123C25.2 123.5 1.5 121.8 0.1 121.7C0.5 106.5 3.7 91.5 9.6 77.3C15.9 62.1 25.1 48.3 36.7 36.7C48.3 25.1 62.2 15.8 77.4 9.5C91.5 3.7 106.5 0.5 121.8 0.1Z"/><path d="M128.9 0.1C159.6 0.9 188.9 13 211.2 34.1C210.4 35 190.9 56.8 177.6 70.1C169.5 78.3 158.3 88.7 150.5 95.8C140.4 84.9 133.5 70.9 131.1 55.4L130 48C129.8 46.3 128.8 45.1 127.7 44.5C127.2 25.4 128.8 1.2 128.9 0.1Z"/><path d="M216.2 39.1C226.8 50.2 235.2 63.2 241.1 77.3C247.4 92.6 250.6 108.8 250.6 125.3H250.5V121.7C250.4 121.7 225.6 123.4 206.1 122.9C205.5 121.7 204.3 120.8 202.7 120.6L195.2 119.5C179.7 117.1 165.7 110.2 154.7 100C161.8 92.2 172.2 81 180.3 72.8C193.6 59.5 215.3 39.9 216.2 39.1Z"/><path d="M250.6 125.3C250.6 141.8 247.4 158 241.1 173.2C235.3 187.3 226.9 200.2 216.5 211.3C215.3 210.2 193.7 190.9 180.5 177.6C172.3 169.5 161.9 158.3 154.8 150.5C165.7 140.4 179.7 133.5 195.2 131.1L202.7 130C204.3 129.8 205.5 128.8 206.1 127.6C225.6 127.1 250.4 128.8 250.5 128.8V125.3H250.6Z"/><path d="M150.6 154.7C158.3 161.8 169.5 172.2 177.6 180.4C191.2 194 211.2 216.4 211.2 216.4L215.4 212.4C214.9 212.9 214.4 213.4 213.9 213.9C202.3 225.5 188.5 234.8 173.3 241.1C159.2 246.9 144.1 250.1 128.9 250.5C128.8 249.4 127.2 225.2 127.7 206.1C128.8 205.5 129.8 204.3 130 202.6L131.1 195.2C133.5 179.7 140.4 165.7 150.6 154.7Z"/><path d="M0.1 129C1.5 128.9 25.2 127.1 44.5 127.6C45.1 128.8 46.3 129.8 48 130L55.4 131.1C88.5 136.1 114.5 162.1 119.5 195.2L120.6 202.6C120.9 204.3 121.8 205.5 123 206.1C123.5 225.5 121.9 249.4 121.8 250.5C106.5 250.1 91.5 246.9 77.4 241.1C62.2 234.8 48.3 225.5 36.7 213.9C25.1 202.3 15.9 188.5 9.6 173.2C3.7 159.2 0.5 144.2 0.1 129Z"/></svg>
+        <p class="foot__tag">Armadillo &mdash; closing the loopholes in teen AI safety</p>
+        <nav class="foot__links" aria-label="Footer">
+          <a href="#how">How it works</a>
+          <a href="#benchmark">Benchmark</a>
+          <a href="#timeline">Timeline</a>
+          <a href="about.html">About</a>
+          <a href="about.html#team">Team</a>
+          <a href="#contact">Contact</a>
+        </nav>
         <p class="foot__meta">
-          <a href="mailto:armadilloaisafety@gmail.com"
-            >armadilloaisafety@gmail.com</a
-          >
+          <a href="mailto:armadilloaisafety@gmail.com">armadilloaisafety@gmail.com</a>
         </p>
       </div>
     </footer>
@@ -890,5 +1036,6 @@
       };
     </script>
     <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/pages.js" defer></script>
   </body>
 </html>
