@@ -105,7 +105,7 @@
       tlTick = false;
       var r = tl.getBoundingClientRect();
       var vh = window.innerHeight;
-      var p = reduceMotion ? 1 : (vh * 0.7 - r.top) / (r.height * 0.95);
+      var p = reduceMotion ? 1 : (vh * 0.65 - r.top) / (r.height * 0.95);
       p = Math.max(0, Math.min(1, p));
       tl.style.setProperty("--p", p.toFixed(4));
       phases.forEach(function (ph, i) {
