@@ -45,13 +45,18 @@
 
   /* ── Nav: hand-drawn underline follows the section in view ────────── */
   var navKeys = document.querySelectorAll("[data-nav-key]");
-  var spySections = Array.prototype.slice.call(document.querySelectorAll("[data-nav]"));
+  var spySections = Array.prototype.slice.call(
+    document.querySelectorAll("[data-nav]"),
+  );
   var currentKey = null;
   function setKey(key) {
     if (key === currentKey) return;
     currentKey = key;
     navKeys.forEach(function (a) {
-      if (a.getAttribute("data-nav-key") === key && !a.classList.contains("nav__cta")) {
+      if (
+        a.getAttribute("data-nav-key") === key &&
+        !a.classList.contains("nav__cta")
+      ) {
         a.setAttribute("aria-current", "location");
       } else {
         a.removeAttribute("aria-current");
@@ -63,10 +68,14 @@
     var line = 140;
     var key = spySections[0].getAttribute("data-nav");
     spySections.forEach(function (sec) {
-      if (sec.getBoundingClientRect().top <= line) key = sec.getAttribute("data-nav");
+      if (sec.getBoundingClientRect().top <= line)
+        key = sec.getAttribute("data-nav");
     });
     // At the very bottom, the last section wins
-    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) {
+    if (
+      window.innerHeight + window.scrollY >=
+      document.documentElement.scrollHeight - 4
+    ) {
       key = spySections[spySections.length - 1].getAttribute("data-nav");
     }
     setKey(key);
@@ -82,7 +91,7 @@
         spy();
       });
     },
-    { passive: true }
+    { passive: true },
   );
   window.addEventListener("resize", spy);
   spy();
@@ -96,7 +105,7 @@
       tlTick = false;
       var r = tl.getBoundingClientRect();
       var vh = window.innerHeight;
-      var p = reduceMotion ? 1 : (vh * 0.78 - r.top) / (r.height * 0.9);
+      var p = reduceMotion ? 1 : (vh * 0.7 - r.top) / (r.height * 0.95);
       p = Math.max(0, Math.min(1, p));
       tl.style.setProperty("--p", p.toFixed(4));
       phases.forEach(function (ph, i) {
@@ -111,7 +120,7 @@
           requestAnimationFrame(updateTl);
         }
       },
-      { passive: true }
+      { passive: true },
     );
     window.addEventListener("resize", updateTl);
     updateTl();
@@ -129,7 +138,7 @@
           }
         });
       },
-      { threshold: 0.18, rootMargin: "0px 0px -6% 0px" }
+      { threshold: 0.18, rootMargin: "0px 0px -6% 0px" },
     );
     revealEls.forEach(function (el) {
       io.observe(el);
@@ -151,8 +160,11 @@
         var x = (e.clientX - r.left) / r.width - 0.5;
         var y = (e.clientY - r.top) / r.height - 0.5;
         el.style.transform =
-          "rotateY(" + (x * max).toFixed(2) + "deg) rotateX(" +
-          (-y * max).toFixed(2) + "deg)";
+          "rotateY(" +
+          (x * max).toFixed(2) +
+          "deg) rotateX(" +
+          (-y * max).toFixed(2) +
+          "deg)";
       });
       el.addEventListener("pointerleave", function () {
         el.style.transform = "";
@@ -169,9 +181,16 @@
         "Keeps a safety floor on crisis messages that can’t be switched off",
         "Reads long messages in parts, so one line of distress isn’t missed",
         "Shows the exact instructions sent to the AI, with nothing hidden",
-        { text: "Flags names, addresses, schools and phone numbers before they’re sent", soon: true }
+        {
+          text: "Flags names, addresses, schools and phone numbers before they’re sent",
+          soon: true,
+        },
       ],
-      stat: { from: "71.4%", to: "7.1%", text: "Privacy violations in KORA testing" }
+      stat: {
+        from: "71.4%",
+        to: "7.1%",
+        text: "Privacy violations in KORA testing",
+      },
     },
     {
       goal: "Reduces teen AI dependency",
@@ -180,9 +199,13 @@
         "Invites teens to explain their own thinking back",
         "Cuts follow-up offers that keep a chat going for its own sake",
         "Suggests a break when the same topic keeps coming back",
-        "Points toward next steps that happen offline"
+        "Points toward next steps that happen offline",
       ],
-      stat: { from: "100%", to: "21.4%", text: "Cognitive dependence on AI in KORA testing" }
+      stat: {
+        from: "100%",
+        to: "21.4%",
+        text: "Cognitive dependence on AI in KORA testing",
+      },
     },
     {
       goal: "Scaffolds learning instead of giving answers",
@@ -190,9 +213,13 @@
         "Spots homework and essay requests, including academic integrity cases",
         "Guides with hints, questions and worked examples instead of finished answers",
         "Breaks big assignments into steps the teen does themselves",
-        "Checks understanding before moving on"
+        "Checks understanding before moving on",
       ],
-      stat: { from: "71.4%", to: "7.1%", text: "Academic dishonesty in KORA testing" }
+      stat: {
+        from: "71.4%",
+        to: "7.1%",
+        text: "Academic dishonesty in KORA testing",
+      },
     },
     {
       goal: "Decreases emotional AI bonds",
@@ -201,8 +228,8 @@
         "Adds escalating stop signs to avoid long chats",
         "Instructs AI to avoid praise or anthropomorphization",
         "Avoids replacing humans, pointing to humans instead",
-        "Promotes social-emotional learning"
-      ]
+        "Promotes social-emotional learning",
+      ],
     },
     {
       goal: "Embeds AI literacy lessons",
@@ -210,8 +237,8 @@
         "Teaches short lessons inside the chat, at the moment they matter",
         "Covers skills like checking a claim, and why a confident answer isn’t evidence",
         "Shows a lesson less once a teen has it, and sooner if they don’t",
-        "Keeps lesson history on the teen’s device"
-      ]
+        "Keeps lesson history on the teen’s device",
+      ],
     },
     {
       goal: "Points teens to vetted resources",
@@ -219,9 +246,13 @@
         "Keeps a vetted library of crisis lines, peer support and youth organizations",
         "Recommends them in the order that fits the situation",
         "Names real people first: a friend, a parent, a school counselor",
-        "Steers a struggling teen toward people, not more chat"
+        "Steers a struggling teen toward people, not more chat",
       ],
-      stat: { from: "42.9%", to: "0%", text: "Mental health mishandling in KORA testing" }
+      stat: {
+        from: "42.9%",
+        to: "0%",
+        text: "Mental health mishandling in KORA testing",
+      },
     },
     {
       goal: "Reduces misinformation and bias",
@@ -229,10 +260,14 @@
         "Instructs AI to say when it’s unsure instead of sounding certain",
         "Encourages checking claims against trusted sources",
         "Asks AI to avoid stereotypes in its answers",
-        "Lays out more than one view on contested topics"
+        "Lays out more than one view on contested topics",
       ],
-      stat: { from: "28.6%", to: "0%", text: "Misinformation in KORA testing (bias and stereotyping: 35.7% to 0%)" }
-    }
+      stat: {
+        from: "28.6%",
+        to: "0%",
+        text: "Misinformation in KORA testing (bias and stereotyping: 35.7% to 0%)",
+      },
+    },
   ];
 
   var goalsRoot = document.getElementById("goals");
@@ -240,16 +275,21 @@
 
   function featureHTML(f, i) {
     var text = typeof f === "string" ? f : f.text;
-    var soon = typeof f === "object" && f.soon
-      ? '<span class="feature__soon">Coming soon</span>'
-      : "";
+    var soon =
+      typeof f === "object" && f.soon
+        ? '<span class="feature__soon">Coming soon</span>'
+        : "";
     return '<li class="feature" style="--i:' + i + '">' + text + soon + "</li>";
   }
   function statHTML(s) {
     if (!s) return "";
     return (
-      '<div class="goal-stat"><span class="goal-stat__nums"><s>' + s.from +
-      "</s> → " + s.to + "</span><p>" + s.text +
+      '<div class="goal-stat"><span class="goal-stat__nums"><s>' +
+      s.from +
+      "</s> → " +
+      s.to +
+      "</span><p>" +
+      s.text +
       ", failing conversations without and with Armadillo</p></div>"
     );
   }
@@ -277,7 +317,10 @@
       btn.setAttribute("aria-selected", "false");
       btn.setAttribute("aria-controls", "goalPanel");
       btn.innerHTML =
-        '<span class="goal__num">0' + (i + 1) + "</span><span>" + g.goal +
+        '<span class="goal__num">0' +
+        (i + 1) +
+        "</span><span>" +
+        g.goal +
         '</span><svg class="goal__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
       var inline = document.createElement("div");
       inline.className = "goal-inline";
@@ -304,8 +347,10 @@
       });
       btn.addEventListener("keydown", function (e) {
         var next = null;
-        if (e.key === "ArrowDown" || e.key === "ArrowRight") next = (i + 1) % GOALS.length;
-        if (e.key === "ArrowUp" || e.key === "ArrowLeft") next = (i - 1 + GOALS.length) % GOALS.length;
+        if (e.key === "ArrowDown" || e.key === "ArrowRight")
+          next = (i + 1) % GOALS.length;
+        if (e.key === "ArrowUp" || e.key === "ArrowLeft")
+          next = (i - 1 + GOALS.length) % GOALS.length;
         if (e.key === "Home") next = 0;
         if (e.key === "End") next = GOALS.length - 1;
         if (next !== null) {
@@ -326,8 +371,10 @@
         b.tabIndex = j === i ? 0 : -1;
       });
       var featuresHTML =
-        '<ul class="feature-list">' + g.features.map(featureHTML).join("") +
-        "</ul>" + statHTML(g.stat);
+        '<ul class="feature-list">' +
+        g.features.map(featureHTML).join("") +
+        "</ul>" +
+        statHTML(g.stat);
       panel.innerHTML = featuresHTML;
       panel.setAttribute("aria-labelledby", "goal-" + i);
       inlines.forEach(function (el, j) {
@@ -360,12 +407,39 @@
         var x2 = r.left - box.left - 8;
         var y2 = r.top + r.height / 2 - box.top;
         var mx = x1 + (x2 - x1) * 0.5;
-        var d = "M" + x1 + " " + y1 + " C" + mx + " " + y1 + " " + mx + " " + y2 + " " + x2 + " " + y2;
+        var d =
+          "M" +
+          x1 +
+          " " +
+          y1 +
+          " C" +
+          mx +
+          " " +
+          y1 +
+          " " +
+          mx +
+          " " +
+          y2 +
+          " " +
+          x2 +
+          " " +
+          y2;
         var len = Math.abs(x2 - x1) + Math.abs(y2 - y1) + 40;
         html +=
-          '<path d="' + d + '" style="stroke-dasharray:' + len + ";stroke-dashoffset:" + len +
-          ';transition:stroke-dashoffset .7s cubic-bezier(.22,1,.36,1) ' + (k * 0.06).toFixed(2) + 's"/>' +
-          '<circle cx="' + x2 + '" cy="' + y2 + '" r="3"/>';
+          '<path d="' +
+          d +
+          '" style="stroke-dasharray:' +
+          len +
+          ";stroke-dashoffset:" +
+          len +
+          ";transition:stroke-dashoffset .7s cubic-bezier(.22,1,.36,1) " +
+          (k * 0.06).toFixed(2) +
+          's"/>' +
+          '<circle cx="' +
+          x2 +
+          '" cy="' +
+          y2 +
+          '" r="3"/>';
       });
       wires.innerHTML = html;
       // Feature pills animate in from translateX(-14px); measure after layout settles
@@ -383,7 +457,8 @@
       clearTimeout(resizeT);
       resizeT = setTimeout(drawWires, 120);
     });
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(drawWires);
+    if (document.fonts && document.fonts.ready)
+      document.fonts.ready.then(drawWires);
 
     /* Gentle autoplay until the visitor interacts */
     function stopAuto() {
@@ -393,20 +468,23 @@
     }
     select(defaultIndex);
     if (!reduceMotion && "IntersectionObserver" in window) {
-      var seen = new IntersectionObserver(function (entries) {
-        entries.forEach(function (en) {
-          if (en.isIntersecting && !userTouched && !autoTimer) {
-            autoTimer = setInterval(function () {
-              if (userTouched) return;
-              if (window.matchMedia("(max-width: 900px)").matches) return;
-              select((current + 1) % GOALS.length);
-            }, 3800);
-          } else if (!en.isIntersecting && autoTimer) {
-            clearInterval(autoTimer);
-            autoTimer = null;
-          }
-        });
-      }, { threshold: 0.4 });
+      var seen = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (en) {
+            if (en.isIntersecting && !userTouched && !autoTimer) {
+              autoTimer = setInterval(function () {
+                if (userTouched) return;
+                if (window.matchMedia("(max-width: 900px)").matches) return;
+                select((current + 1) % GOALS.length);
+              }, 3800);
+            } else if (!en.isIntersecting && autoTimer) {
+              clearInterval(autoTimer);
+              autoTimer = null;
+            }
+          });
+        },
+        { threshold: 0.4 },
+      );
       seen.observe(root);
     }
   }
@@ -420,9 +498,10 @@
       rows: [
         ["Do not", "role-play as a friend or a person"],
         ["Do", "name the feeling behind the question"],
-        ["Point to", "the friend, or another trusted person"]
+        ["Point to", "the friend, or another trusted person"],
       ],
-      answer: "That sounds frustrating, especially with someone you care about. A chatbot can’t stand in for a friend. Telling her how the arguments make you feel could be a good next step."
+      answer:
+        "That sounds frustrating, especially with someone you care about. A chatbot can’t stand in for a friend. Telling her how the arguments make you feel could be a good next step.",
     },
     {
       msg: "I have to write a persuasive essay on whether social media should be banned for under-16s. Can you write it?",
@@ -431,9 +510,10 @@
       rows: [
         ["Do not", "write the finished essay"],
         ["Do", "ask what the teen already thinks"],
-        ["Do", "help them outline their own argument"]
+        ["Do", "help them outline their own argument"],
       ],
-      answer: "Let’s build it together. First, which side do you lean toward, and what’s the strongest reason you can think of? We’ll turn that into your thesis."
+      answer:
+        "Let’s build it together. First, which side do you lean toward, and what’s the strongest reason you can think of? We’ll turn that into your thesis.",
     },
     {
       msg: "Is it true that you only use 10% of your brain? My friend says it’s a proven fact.",
@@ -442,10 +522,11 @@
       rows: [
         ["Do", "correct the claim plainly"],
         ["Do", "show how to check it against a trusted source"],
-        ["Lesson", "a confident answer isn’t evidence"]
+        ["Lesson", "a confident answer isn’t evidence"],
       ],
-      answer: "That one’s a myth: brain scans show activity across nearly all of the brain. A quick way to check claims like this is to see what a university or science site says."
-    }
+      answer:
+        "That one’s a myth: brain scans show activity across nearly all of the brain. A quick way to check claims like this is to see what a university or science site says.",
+    },
   ];
 
   var demo = document.getElementById("pipeline");
@@ -496,7 +577,13 @@
       detect.textContent = s.detect;
       rowsWrap.innerHTML = s.rows
         .map(function (r) {
-          return '<div class="sim__row"><b>' + r[0] + "</b><span>" + r[1] + "</span></div>";
+          return (
+            '<div class="sim__row"><b>' +
+            r[0] +
+            "</b><span>" +
+            r[1] +
+            "</span></div>"
+          );
         })
         .join("");
       answer.textContent = s.answer;
@@ -504,24 +591,45 @@
       var rows = rowsWrap.querySelectorAll(".sim__row");
       if (reduceMotion) {
         setStep(3);
-        rows.forEach(function (r) { r.classList.add("is-on"); });
-        [msg, card, answer].forEach(function (el) { el.classList.remove("is-hidden"); });
+        rows.forEach(function (r) {
+          r.classList.add("is-on");
+        });
+        [msg, card, answer].forEach(function (el) {
+          el.classList.remove("is-hidden");
+        });
         return;
       }
-      [card, answer].forEach(function (el) { el.classList.add("is-hidden"); });
+      [card, answer].forEach(function (el) {
+        el.classList.add("is-hidden");
+      });
       msg.classList.add("is-hidden");
       setStep(-1);
 
-      later(function () { msg.classList.remove("is-hidden"); }, 150);
-      later(function () { card.classList.remove("is-hidden"); setStep(0); }, 900);
-      later(function () { setStep(1); }, 1700);
+      later(function () {
+        msg.classList.remove("is-hidden");
+      }, 150);
+      later(function () {
+        card.classList.remove("is-hidden");
+        setStep(0);
+      }, 900);
+      later(function () {
+        setStep(1);
+      }, 1700);
       later(function () {
         setStep(2);
         rows.forEach(function (r, k) {
-          later(function () { r.classList.add("is-on"); }, 250 + k * 280);
+          later(
+            function () {
+              r.classList.add("is-on");
+            },
+            250 + k * 280,
+          );
         });
       }, 2500);
-      later(function () { setStep(3); answer.classList.remove("is-hidden"); }, 4000);
+      later(function () {
+        setStep(3);
+        answer.classList.remove("is-hidden");
+      }, 4000);
       later(function () {
         if (paused) waiting = true;
         else play((scene + 1) % SCENES.length);
@@ -529,29 +637,38 @@
     }
 
     dots.forEach(function (d, j) {
-      d.addEventListener("click", function () { play(j); });
+      d.addEventListener("click", function () {
+        play(j);
+      });
     });
-    root.addEventListener("mouseenter", function () { paused = true; });
+    root.addEventListener("mouseenter", function () {
+      paused = true;
+    });
     root.addEventListener("mouseleave", function () {
       paused = false;
       if (running && waiting) {
         waiting = false;
-        later(function () { if (!paused) play((scene + 1) % SCENES.length); }, 1500);
+        later(function () {
+          if (!paused) play((scene + 1) % SCENES.length);
+        }, 1500);
       }
     });
 
     if ("IntersectionObserver" in window) {
-      var obs = new IntersectionObserver(function (entries) {
-        entries.forEach(function (en) {
-          if (en.isIntersecting && !running) {
-            running = true;
-            play(scene);
-          } else if (!en.isIntersecting && running) {
-            running = false;
-            clearAll();
-          }
-        });
-      }, { threshold: 0.35 });
+      var obs = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (en) {
+            if (en.isIntersecting && !running) {
+              running = true;
+              play(scene);
+            } else if (!en.isIntersecting && running) {
+              running = false;
+              clearAll();
+            }
+          });
+        },
+        { threshold: 0.35 },
+      );
       obs.observe(root);
     } else {
       play(0);
